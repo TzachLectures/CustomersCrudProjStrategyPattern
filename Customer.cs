@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,18 +9,19 @@ namespace CustomersCrudProj
 {
     internal class Customer
     {
+        [Key]
         public string CID { get; set; }           // Customer ID
-        public string CName { get; set; }         // Customer Name
-        public string ContactName { get; set; }   // Contact Name
-        public string ContactTitle { get; set; }  // Contact Title
-        public string Address { get; set; }       // Address
-        public string City { get; set; }          // City
-        public string Region { get; set; }        // Region (can be null)
-        public string PostalCode { get; set; }    // Postal Code
-        public string Country { get; set; }       // Country
-        public string Phone { get; set; }         // Phone number
-        public string Fax { get; set; }           // Fax number (can be null)
-        public char CType { get; set; }         // Customer Type (can be null)
+        public string? CName { get; set; }         // Customer Name
+        public string? ContactName { get; set; }   // Contact Name
+        public string? ContactTitle { get; set; }  // Contact Title
+        public string? Address { get; set; }       // Address
+        public string? City { get; set; }          // City
+        public string? Region { get; set; }        // Region (can be null)
+        public string? PostalCode { get; set; }    // Postal Code
+        public string? Country { get; set; }       // Country
+        public string? Phone { get; set; }         // Phone number
+        public string? Fax { get; set; }           // Fax number (can be null)
+        public char? CType { get; set; }         // Customer Type (can be null)
 
         public Customer(){
             }
