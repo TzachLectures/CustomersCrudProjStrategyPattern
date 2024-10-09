@@ -1,13 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CustomersCrudProj.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomersCrudProj
+namespace CustomersCrudProj.Db
 {
-    internal class NorthwindContext:DbContext
+    internal class NorthwindContext : DbContext
     {
         public DbSet<Customer> Customers { get; set; }
 

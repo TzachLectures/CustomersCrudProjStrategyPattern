@@ -1,47 +1,52 @@
-﻿namespace CustomersCrudProj
+﻿using CustomersCrudProj.Models;
+using CustomersCrudProj.Services;
+
+namespace CustomersCrudProj
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            CrudDbEntityFramework crudDbEntityFramework= new CrudDbEntityFramework();
-            crudDbEntityFramework.PrintAllCustomers();
-            //CrudDbDisconnected crudDbDisconnected = new CrudDbDisconnected();
-            //CrudManager crudManager = new CrudManager(crudDbDisconnected);
-            //int choise = 1;
-            //while (choise != 0)
-            //{
-            //   choise= PrintMenu();
-            //    switch (choise) {
+            CrudDbDisconnected crudDbDisconnected = new CrudDbDisconnected();
+            CrudLocal crudLocal = new CrudLocal();
+            CrudDbEntityFramework crudEf = new CrudDbEntityFramework();
 
-            //        case 1:
-            //            crudManager.PrintAllCustomers();
-            //            break;
+            CrudManager crudManager = new CrudManager(crudEf);
+            int choise = 1;
+            while (choise != 0)
+            {
+                choise = PrintMenu();
+                switch (choise)
+                {
 
-            //        case 2:
-            //            Console.Write("Please enter customer id to print: ");
-            //            string idToPrint = Console.ReadLine();
-            //            crudManager.PrintCustomerById(idToPrint);
-            //            break;
+                    case 1:
+                        crudManager.PrintAllCustomers();
+                        break;
 
-            //        case 3:
-            //            Customer customerToCreate = GetCustomerFromUser();
-            //            crudManager.CreateNewCustomer(customerToCreate);
-            //            break;
+                    case 2:
+                        Console.Write("Please enter customer id to print: ");
+                        string idToPrint = Console.ReadLine();
+                        crudManager.PrintCustomerById(idToPrint);
+                        break;
 
-            //        case 4:
-            //            Customer customerToEdit = GetCustomerFromUser();
-            //            crudManager.EditCustomerById(customerToEdit.CID, customerToEdit);
-            //            break;
-            //        case 5:
-            //            Console.Write("Please enter customer id to delete: ");
-            //            string idToDelete = Console.ReadLine();
-            //            crudManager.DeleteCustomerById(idToDelete);
-            //            break;
-            //    }
-            //    Console.WriteLine("Please enter any key to continue...");
-            //    Console.ReadLine();
-            //}
+                    case 3:
+                        Customer customerToCreate = GetCustomerFromUser();
+                        crudManager.CreateNewCustomer(customerToCreate);
+                        break;
+
+                    case 4:
+                        Customer customerToEdit = GetCustomerFromUser();
+                        crudManager.EditCustomerById(customerToEdit.CID, customerToEdit);
+                        break;
+                    case 5:
+                        Console.Write("Please enter customer id to delete: ");
+                        string idToDelete = Console.ReadLine();
+                        crudManager.DeleteCustomerById(idToDelete);
+                        break;
+                }
+                Console.WriteLine("Please enter any key to continue...");
+                Console.ReadLine();
+            }
 
 
         }

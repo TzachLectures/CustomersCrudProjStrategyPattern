@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CustomersCrudProj.Models;
 
-namespace CustomersCrudProj
+namespace CustomersCrudProj.Services
 {
-    internal class CrudLocal :ICrudOperations
+    internal class CrudLocal : ICrudOperations
     {
         public static List<Customer> customers = new List<Customer>();
 
-        public void PrintAllCustomers ()
+        public void PrintAllCustomers()
         {
             foreach (Customer c in customers)
             {
@@ -20,11 +21,11 @@ namespace CustomersCrudProj
 
         public void PrintCustomerById(string id)
         {
-            Customer c = customers.FirstOrDefault(c=>c.CID == id);
+            Customer c = customers.FirstOrDefault(c => c.CID == id);
             Console.WriteLine(c);
         }
 
-        public void CreateNewCustomer (Customer customer)
+        public void CreateNewCustomer(Customer customer)
         {
             customers.Add(customer);
             Console.WriteLine("New customer has been added");

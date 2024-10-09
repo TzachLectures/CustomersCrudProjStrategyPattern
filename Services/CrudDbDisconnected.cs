@@ -5,19 +5,20 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CustomersCrudProj.Models;
 
-namespace CustomersCrudProj
+namespace CustomersCrudProj.Services
 {
-    internal class CrudDbDisconnected:ICrudOperations
+    internal class CrudDbDisconnected : ICrudOperations
     {
         private static string connectionString = "Server=LAPTOP-M1H6FNPI\\MSSQLSERVER02;Database=Northwind;Trusted_Connection=True;";
         private DataSet _dataSet = new DataSet();
 
         public CrudDbDisconnected()
         {
-            using(SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM customers", connectionString))
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM customers", connectionString))
             {
-                dataAdapter.Fill(_dataSet,"customers");
+                dataAdapter.Fill(_dataSet, "customers");
             }
         }
 
@@ -28,10 +29,10 @@ namespace CustomersCrudProj
 
             foreach (DataRow row in customersTable.Rows)
             {
-                if(row.RowState!=DataRowState.Deleted)
-                Console.WriteLine(row["CName"]);
+                if (row.RowState != DataRowState.Deleted)
+                    Console.WriteLine(row["CName"]);
             }
-           
+
         }
 
         public void PrintCustomerById(string id)

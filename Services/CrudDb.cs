@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using CustomersCrudProj.Models;
 
-namespace CustomersCrudProj
+namespace CustomersCrudProj.Services
 {
-    internal class CrudDb: ICrudOperations
+    internal class CrudDb : ICrudOperations
     {
         private static string connectionString = "Server=LAPTOP-M1H6FNPI\\MSSQLSERVER02;Database=Northwind;Trusted_Connection=True;";
 
@@ -55,8 +56,9 @@ namespace CustomersCrudProj
 
         public void CreateNewCustomer(Customer customer)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString)) { 
-            
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
                 connection.Open();
                 string query = $@"INSERT INTO Customers
                         VALUES ('{customer.CID}', '{customer.CName}',
@@ -65,7 +67,7 @@ namespace CustomersCrudProj
                         '{customer.Country}', '{customer.Phone}', 
                         '{customer.Fax}', '{customer.CType}')";
 
-                SqlCommand command = new SqlCommand(query,connection);
+                SqlCommand command = new SqlCommand(query, connection);
                 int rowAffected = command.ExecuteNonQuery();
                 Console.WriteLine($"{rowAffected} rows affected");
 

@@ -5,26 +5,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomersCrudProj
+namespace CustomersCrudProj.Models
 {
     internal class Customer
     {
         [Key]
-        public string CID { get; set; }           // Customer ID
-        public string? CName { get; set; }         // Customer Name
-        public string? ContactName { get; set; }   // Contact Name
-        public string? ContactTitle { get; set; }  // Contact Title
-        public string? Address { get; set; }       // Address
-        public string? City { get; set; }          // City
-        public string? Region { get; set; }        // Region (can be null)
-        public string? PostalCode { get; set; }    // Postal Code
-        public string? Country { get; set; }       // Country
-        public string? Phone { get; set; }         // Phone number
-        public string? Fax { get; set; }           // Fax number (can be null)
-        public char? CType { get; set; }         // Customer Type (can be null)
+        public string CID { get; set; }           
+        public string? CName { get; set; }         
+        public string? ContactName { get; set; }   
+        public string? ContactTitle { get; set; }  
+        public string? Address { get; set; }       
+        public string? City { get; set; }          
+        public string? Region { get; set; }        
+        public string? PostalCode { get; set; }    
+        public string? Country { get; set; }     
+        public string? Phone { get; set; }         
+        public string? Fax { get; set; }          
+        public char? CType { get; set; }        
 
-        public Customer(){
-            }
+        public Customer()
+        {
+        }
 
         public Customer(string cid, string cName, string contactName, string contactTitle, string address, string city, string region, string postalCode, string country, string phone, string fax, char cType)
         {
