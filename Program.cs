@@ -11,7 +11,9 @@ namespace CustomersCrudProj
             CrudLocal crudLocal = new CrudLocal();
             CrudDbEntityFramework crudEf = new CrudDbEntityFramework();
 
-            CrudManager crudManager = new CrudManager(crudEf);
+            CrudDbMongoDb crudDbMongoDb = new CrudDbMongoDb();
+
+            CrudManager crudManager = new CrudManager(crudDbMongoDb);
             int choise = 1;
             while (choise != 0)
             {

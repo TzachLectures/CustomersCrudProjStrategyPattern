@@ -1,6 +1,8 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +11,10 @@ namespace CustomersCrudProj.Models
 {
     internal class Customer
     {
+       
+        [NotMapped]
+        public BsonObjectId _id { get; set; }
+
         [Key]
         public string CID { get; set; }           
         public string? CName { get; set; }         
