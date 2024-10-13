@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,11 +12,12 @@ namespace CustomersCrudProj.Models
 {
     internal class Customer
     {
-       
+
         [NotMapped]
         public BsonObjectId _id { get; set; }
 
         [Key]
+       // [BsonId]
         public string CID { get; set; }           
         public string? CName { get; set; }         
         public string? ContactName { get; set; }   
